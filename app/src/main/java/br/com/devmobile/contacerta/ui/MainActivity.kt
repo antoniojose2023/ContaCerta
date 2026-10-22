@@ -1,18 +1,17 @@
-package br.com.devmobile.contacerta
+package br.com.devmobile.contacerta.ui
 
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import br.com.devmobile.contacerta.R
 import br.com.devmobile.contacerta.databinding.ActivityMainBinding
 import br.com.devmobile.contacerta.fragment.DashboardFragment
 import br.com.devmobile.contacerta.fragment.RelatorioFragment
 import br.com.devmobile.contacerta.fragment.TransacoesFragment
-import com.google.android.material.navigation.NavigationBarView
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy{ ActivityMainBinding.inflate( layoutInflater ) }
@@ -55,8 +54,6 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerView, fragment)
             .commit()
-
     }
-
 
 }

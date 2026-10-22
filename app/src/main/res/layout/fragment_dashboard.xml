@@ -120,7 +120,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvSaldoMesAnterior"
+                android:id="@+id/tvReceitaAtual"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -152,10 +152,10 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="24dp"
-                android:text="Mês anterior"
+                android:text="Mês Atual"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvSaldoMesAnterior" />
+                app:layout_constraintTop_toBottomOf="@+id/tvReceitaAtual" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -190,13 +190,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvDespesasMesAnterior"
+                android:id="@+id/tvDespesasAtual"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:text="R$ 8.542,30"
-                android:textColor="@color/black"
+                android:textColor="@color/vermelho"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -212,7 +212,7 @@
                 android:background="@drawable/fundo_seta_despesa"
                 android:padding="4dp"
                 android:src="@drawable/ic_seta_despesas"
-                app:layout_constraintBottom_toTopOf="@+id/tvDespesasMesAnterior"
+                app:layout_constraintBottom_toTopOf="@+id/tvDespesasAtual"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -223,10 +223,10 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="24dp"
-                android:text="Mês anterior"
+                android:text="Mês Atual"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvDespesasMesAnterior" />
+                app:layout_constraintTop_toBottomOf="@+id/tvDespesasAtual" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -246,7 +246,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/tvVerTodos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

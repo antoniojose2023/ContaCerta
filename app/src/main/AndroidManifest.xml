@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ContaCerta">
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.SplashActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
@@ -30,15 +30,15 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".NovaTransacaoActivity"
+            android:name=".ui.NovaTransacaoActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".AddCategoriaActivity"
+            android:name=".ui.AddCategoriaActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".AddContaActivity"
+            android:name=".ui.AddContaActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

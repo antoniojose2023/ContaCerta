@@ -12,7 +12,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NovaTransacaoActivity">
+    tools:context=".ui.NovaTransacaoActivity">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -114,7 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView16">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/aditNomeTransacao"
+            android:id="@+id/editNomeTransacao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Ex: Supermeercado, sálaário, água . . ." />
