@@ -3,6 +3,7 @@ package br.com.devmobile.contacerta.data.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.ForeignKey.Companion.CASCADE
 import androidx.room.PrimaryKey
 import androidx.room.util.TableInfo
 
@@ -11,7 +12,9 @@ import androidx.room.util.TableInfo
      foreignKeys = [ForeignKey(
          entity = Categoria::class,
          parentColumns = ["categoria_id"],
-         childColumns = ["categoria_id"]
+         childColumns = ["categoria_id"],
+         //onDelete =  CASCADE,
+         //onUpdate = CASCADE
      )]
 )
 

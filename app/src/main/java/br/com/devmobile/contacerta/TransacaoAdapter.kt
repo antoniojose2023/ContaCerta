@@ -62,7 +62,6 @@ class TransacaoAdapter(
                     onClickLongListener(transacaoComCategoria)
                     true
                 }
-
         }
     }
 

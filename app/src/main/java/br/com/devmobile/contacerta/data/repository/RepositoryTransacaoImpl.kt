@@ -25,6 +25,14 @@ class RepositoryTransacaoImpl(val context: Context) {
         }
     }
 
+    suspend fun delete(transacao: TransacaoComCategoria): Int {
+        return  try {
+            dao.delete(transacao.transacao)
+        }catch (ex: Exception){
+            throw Exception(ex.message)
+        }
+    }
+
     suspend fun atualizar(transacao: Transacao): Int {
         return  try {
             dao.atualizar(transacao)

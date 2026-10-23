@@ -1,6 +1,7 @@
 package br.com.devmobile.contacerta.data.entity.relation
 
 import androidx.room.Embedded
+import androidx.room.ForeignKey
 import androidx.room.Relation
 import br.com.devmobile.contacerta.data.entity.Categoria
 import br.com.devmobile.contacerta.data.entity.Transacao
@@ -12,7 +13,8 @@ data class TransacaoComCategoria(
       @Relation(
           parentColumn = "categoria_id",
           entityColumn = "categoria_id", 
-          entity = Categoria::class
+          entity = Categoria::class,
+
       )
       val categoria: Categoria
 )
