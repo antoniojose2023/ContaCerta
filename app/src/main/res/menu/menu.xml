@@ -17,9 +17,9 @@
        />
 
     <item
-        android:id="@+id/menu_relatorio"
-        android:title="relatório"
-        android:icon="@drawable/ic_relatorio"
+        android:id="@+id/menu_info"
+        android:title="Info"
+        android:icon="@drawable/ic_info"
         app:showAsAction="always"
        />
 

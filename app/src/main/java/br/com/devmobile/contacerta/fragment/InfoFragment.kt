@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import br.com.devmobile.contacerta.R
 
 
-class RelatorioFragment : Fragment() {
+class InfoFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

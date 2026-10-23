@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import br.com.devmobile.contacerta.R
 import br.com.devmobile.contacerta.databinding.ActivityMainBinding
 import br.com.devmobile.contacerta.fragment.DashboardFragment
-import br.com.devmobile.contacerta.fragment.RelatorioFragment
+import br.com.devmobile.contacerta.fragment.InfoFragment
 import br.com.devmobile.contacerta.fragment.TransacoesFragment
 
 class MainActivity : AppCompatActivity() {
@@ -37,8 +37,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_transacoes -> {
                     addFragment(TransacoesFragment())
                 }
-                R.id.menu_relatorio -> {
-                     addFragment(RelatorioFragment())
+                R.id.menu_info -> {
+                     addFragment(InfoFragment())
                 }
                 else -> {
                     Log.i("error", "onCreate: "+"Não carregou nenhum fragment")}

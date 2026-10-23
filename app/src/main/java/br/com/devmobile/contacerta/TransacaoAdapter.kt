@@ -12,7 +12,10 @@ import br.com.devmobile.contacerta.data.entity.relation.TransacaoComCategoria
 import br.com.devmobile.contacerta.databinding.ItemTransacoesBinding
 import br.com.devmobile.contacerta.util.toReal
 
-class TransacaoAdapter: RecyclerView.Adapter<TransacaoAdapter.TransacaoViewHolder>()  {
+class TransacaoAdapter(
+    var onClickListener: (TransacaoComCategoria) -> Unit = {},
+    var onClickLongListener: (TransacaoComCategoria) -> Unit = {}
+): RecyclerView.Adapter<TransacaoAdapter.TransacaoViewHolder>()  {
 
     private var transacaoComCategoria = mutableListOf<TransacaoComCategoria>()
     fun addLista(lista: List<TransacaoComCategoria>){
@@ -47,7 +50,18 @@ class TransacaoAdapter: RecyclerView.Adapter<TransacaoAdapter.TransacaoViewHolde
                 binding.tvItemCategoriaTransacao.text = transacaoComCategoria.categoria.nome
                 binding.tvItemDataTransacao.text = transacaoComCategoria.transacao.data
 
-                binding.tvItemValorTransacao.setTextColor(if(transacaoComCategoria.transacao.tipo == "DESPESA") ContextCompat.getColor(itemView.context, R.color.vermelho) else ContextCompat.getColor(itemView.context, R.color.verde))
+                binding.tvItemValorTransacao.setTextColor(
+                    if(transacaoComCategoria.transacao.tipo == "DESPESA") ContextCompat.getColor(itemView.context, R.color.vermelho)
+                    else ContextCompat.getColor(itemView.context, R.color.verde))
+
+                binding.itemCardTransacao.setOnClickListener {
+                      onClickListener(transacaoComCategoria)
+                }
+
+                binding.itemCardTransacao.setOnLongClickListener {
+                    onClickLongListener(transacaoComCategoria)
+                    true
+                }
 
         }
     }
