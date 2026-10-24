@@ -17,6 +17,7 @@ import br.com.devmobile.contacerta.data.entity.Transacao
 import br.com.devmobile.contacerta.data.repository.RepositoryCategoriaImpl
 import br.com.devmobile.contacerta.data.repository.RepositoryTransacaoImpl
 import br.com.devmobile.contacerta.databinding.ActivityNovaTransacaoBinding
+import br.com.devmobile.contacerta.util.toValorDouble
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -120,12 +121,13 @@ class NovaTransacaoActivity : AppCompatActivity() {
              val valor = binding.editValor.text.toString()
              val data = binding.editData.text.toString()
              val observacao = binding.editdescricaoTransacao.text.toString()
+
              val conta = binding.spinnerConta.selectedItem.toString()
              val categoria = binding.spinnerCategoria.selectedItem.toString()
 
              if(tipo.isNotEmpty() && transacaco.isNotEmpty() && valor.isNotEmpty() && data.isNotEmpty() && observacao.isNotEmpty() && conta.isNotEmpty() && categoria.isNotEmpty()){
                     coroutine.launch {
-                          val transacao = Transacao(0, transacaco, observacao, valor.toDouble(), tipo, data, categoriaModel.id, conta)
+                          val transacao = Transacao(0, transacaco, observacao, valor.toValorDouble(), tipo, data, categoriaModel.id, conta)
                           val id = repositoryTransacaoImpl.salvar(transacao)
 
                            withContext(Dispatchers.Main){
@@ -141,9 +143,7 @@ class NovaTransacaoActivity : AppCompatActivity() {
              }else{
                  Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
              }
-
         }
-
     }
 
     private fun direcionarTelaInicial(){

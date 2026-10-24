@@ -54,6 +54,9 @@ class TransacaoAdapter(
                     if(transacaoComCategoria.transacao.tipo == "DESPESA") ContextCompat.getColor(itemView.context, R.color.vermelho)
                     else ContextCompat.getColor(itemView.context, R.color.verde))
 
+                val fundoImagemTransacao = if(transacaoComCategoria.transacao.tipo == "DESPESA") R.drawable.fundo_image_item_transacao_despesa else R.drawable.fundo_image_item_transacao_receita
+                binding.ivItemTransacao.background = ContextCompat.getDrawable(itemView.context, fundoImagemTransacao)
+
                 binding.itemCardTransacao.setOnClickListener {
                       onClickListener(transacaoComCategoria)
                 }

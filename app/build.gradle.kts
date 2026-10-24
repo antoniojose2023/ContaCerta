@@ -19,6 +19,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions{
+            annotationProcessorOptions {
+               val arguments = ("room.schemaLocation" to "$projectDir/schemas")
+            }
+        }
     }
 
     buildTypes {

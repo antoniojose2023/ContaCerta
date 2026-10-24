@@ -16,6 +16,7 @@ import br.com.devmobile.contacerta.data.entity.relation.TransacaoComCategoria
 import br.com.devmobile.contacerta.data.repository.RepositoryCategoriaImpl
 import br.com.devmobile.contacerta.data.repository.RepositoryTransacaoImpl
 import br.com.devmobile.contacerta.databinding.FragmentDashboardBinding
+import br.com.devmobile.contacerta.ui.MainActivity
 import br.com.devmobile.contacerta.util.toReal
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -55,6 +56,8 @@ class DashboardFragment : Fragment() {
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.fragmentContainerView, fragment)
                 ?.commit()
+
+            (activity as MainActivity).binding.bottomAppBar.selectedItemId = R.id.menu_transacoes
         }
 
         coroutine.launch {
@@ -80,45 +83,9 @@ class DashboardFragment : Fragment() {
               }
         }
 
-        transacaoAdapter.onClickLongListener = { transacaoComCategoria ->
-               exibirDialog(transacaoComCategoria)
-        }
-
 
         return binding.root
     }
 
-    fun exibirDialog(transacaoComCategoria: TransacaoComCategoria){
-         val dialog = AlertDialog.Builder(requireContext())
-         dialog.setTitle("Deseja realmente excluir?")
-         dialog.setMessage("Essa ação não pode ser desfeita")
-         dialog.setPositiveButton("Sim"){_,_ ->
-                coroutine.launch {
-                     val qtd = repositoryTransacaoImpl.delete(transacaoComCategoria)
-                     withContext(Dispatchers.Main){
-                         if(qtd > 0){
-                             Toast.makeText(requireContext(), "Transação excluída com sucesso", Toast.LENGTH_SHORT).show()
-                             atualizarTelaDashBoard()
-                         }else{
-                             Toast.makeText(requireContext(), "Erro ao excluir transação", Toast.LENGTH_SHORT).show()
-                         }
-                     }
-                }
-         }
-         dialog.setNeutralButton("Cancelar"){_,_->
-
-         }
-         .create()
-         .show()
-
-    }
-
-
-    fun atualizarTelaDashBoard(){
-        val fragment = DashboardFragment()
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.fragmentContainerView, fragment)
-            ?.commit()
-    }
 
 }

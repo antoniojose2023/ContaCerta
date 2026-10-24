@@ -5,6 +5,7 @@ import androidx.room.ForeignKey
 import androidx.room.Relation
 import br.com.devmobile.contacerta.data.entity.Categoria
 import br.com.devmobile.contacerta.data.entity.Transacao
+import java.io.Serializable
 import kotlin.reflect.KClass
 
 data class TransacaoComCategoria(
@@ -17,4 +18,4 @@ data class TransacaoComCategoria(
 
       )
       val categoria: Categoria
-)
+): Serializable

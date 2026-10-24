@@ -14,7 +14,7 @@ import br.com.devmobile.contacerta.fragment.InfoFragment
 import br.com.devmobile.contacerta.fragment.TransacoesFragment
 
 class MainActivity : AppCompatActivity() {
-    private val binding by lazy{ ActivityMainBinding.inflate( layoutInflater ) }
+    val binding by lazy{ ActivityMainBinding.inflate( layoutInflater ) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

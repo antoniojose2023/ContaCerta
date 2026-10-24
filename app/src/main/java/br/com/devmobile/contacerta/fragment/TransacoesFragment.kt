@@ -1,5 +1,6 @@
 package br.com.devmobile.contacerta.fragment
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
@@ -18,6 +19,7 @@ import br.com.devmobile.contacerta.data.entity.relation.TransacaoComCategoria
 import br.com.devmobile.contacerta.data.repository.RepositoryTransacaoImpl
 import br.com.devmobile.contacerta.ui.NovaTransacaoActivity
 import br.com.devmobile.contacerta.databinding.FragmentTransacoesBinding
+import br.com.devmobile.contacerta.ui.AtualizaTransacaoActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -141,7 +143,48 @@ class TransacoesFragment : Fragment() {
                 true
          })
 
+        transacaoAdapter.onClickLongListener = { transacaoComCategoria ->
+            exibirDialog(transacaoComCategoria)
+        }
+
+        transacaoAdapter.onClickListener = { transacaoComCategoria ->
+            val intent = Intent(requireContext(), AtualizaTransacaoActivity::class.java)
+            intent.putExtra("transacaoComCategoria", transacaoComCategoria)
+            activity?.startActivity( intent )
+        }
+
         return binding.root
+    }
+
+    fun exibirDialog(transacaoComCategoria: TransacaoComCategoria){
+        val dialog = AlertDialog.Builder(requireContext())
+        dialog.setTitle("Deseja realmente excluir?")
+        dialog.setMessage("Essa ação não pode ser desfeita")
+        dialog.setPositiveButton("Sim"){_,_ ->
+            coroutine.launch {
+                val qtd = repositoryTransacaoImpl.delete(transacaoComCategoria)
+                withContext(Dispatchers.Main){
+                    if(qtd > 0){
+                        Toast.makeText(requireContext(), "Transação excluída com sucesso", Toast.LENGTH_SHORT).show()
+                        atualizarTelaListagemTransacoes()
+                    }else{
+                        Toast.makeText(requireContext(), "Erro ao excluir transação", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+        dialog.setNeutralButton("Cancelar"){_,_-> }
+            .create()
+            .show()
+
+    }
+
+
+    fun atualizarTelaListagemTransacoes(){
+        val fragment = DashboardFragment()
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.fragmentContainerView, fragment)
+            ?.commit()
     }
 
 

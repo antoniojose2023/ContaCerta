@@ -6,6 +6,7 @@ import androidx.room.ForeignKey
 import androidx.room.ForeignKey.Companion.CASCADE
 import androidx.room.PrimaryKey
 import androidx.room.util.TableInfo
+import java.io.Serializable
 
 @Entity(
      tableName = "transacao",
@@ -17,7 +18,6 @@ import androidx.room.util.TableInfo
          //onUpdate = CASCADE
      )]
 )
-
 data class Transacao(
      @PrimaryKey(autoGenerate = true)
      val id: Long,
@@ -29,4 +29,7 @@ data class Transacao(
      @ColumnInfo("categoria_id")
      val categoriaId: Long,
      val conta: String,
-)
+     val formaPagamento: String = "CARTAO"
+): Serializable {
+     constructor(id: Long, nome: String, valor: Double) : this(id = 0, nome = nome, descricao = "", valor = valor, tipo = "", data = "", categoriaId = 0, conta = "")
+}
