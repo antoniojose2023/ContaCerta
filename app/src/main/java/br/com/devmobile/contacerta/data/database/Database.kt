@@ -1,6 +1,7 @@
 package br.com.devmobile.contacerta.data.database
 
 import android.content.Context
+import androidx.room.AutoMigration
 
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -12,7 +13,14 @@ import br.com.devmobile.contacerta.data.entity.Conta
 import br.com.devmobile.contacerta.data.entity.Transacao
 
 
-@androidx.room.Database(entities = [Conta::class, Categoria::class, Transacao::class], version = 1)
+@androidx.room.Database(
+    entities = [Conta::class, Categoria::class, Transacao::class], version = 2,
+    exportSchema = true,
+    autoMigrations = [
+        AutoMigration(from = 1, to = 2),
+    ]
+
+)
 abstract class Database: RoomDatabase() {
 
     abstract fun contaDao(): ContaDao

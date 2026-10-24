@@ -29,6 +29,7 @@ data class Transacao(
      @ColumnInfo("categoria_id")
      val categoriaId: Long,
      val conta: String,
+     @ColumnInfo("forma_pagamento", defaultValue = "CARTAO")
      val formaPagamento: String = "CARTAO"
 ): Serializable {
      constructor(id: Long, nome: String, valor: Double) : this(id = 0, nome = nome, descricao = "", valor = valor, tipo = "", data = "", categoriaId = 0, conta = "")

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     id("com.google.devtools.ksp")
+    alias(libs.plugins.androidx.room)
 }
 
 android {
@@ -20,11 +21,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        javaCompileOptions{
-            annotationProcessorOptions {
-               val arguments = ("room.schemaLocation" to "$projectDir/schemas")
-            }
-        }
+
     }
 
     buildTypes {
@@ -42,6 +39,10 @@ android {
     buildFeatures{
         viewBinding = true
     }
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }
 
 dependencies {
