@@ -53,7 +53,7 @@ Os dados ficam armazenados localmente no dispositivo, usando banco de dados **Ro
 
 ## 🖼️ Telas
 
-| Splash | Dashboard | Transações | Informações |
+| SplashSreen | Dashboard | Transações | Informações |
 | :---: | :---: | :---: | :---: |
 | <img width="1280" height="2856" alt="Image" src="https://github.com/user-attachments/assets/71071a64-a15d-46cf-ac1f-d9a04d1499fc" /> | <img width="1280" height="2856" alt="Image" src="https://github.com/user-attachments/assets/179ec30c-5501-4aaa-8588-034241b6c52a" /> | <img width="1280" height="2856" alt="Image" src="https://github.com/user-attachments/assets/82f0fa41-9e85-4763-b2dc-cb9526a7dc96" /> | <img width="1280" height="2856" alt="Image" src="https://github.com/user-attachments/assets/4af75275-7e8b-48bf-ba9b-06a5a9101b53" /> |
 
